@@ -13,10 +13,6 @@ menuHamburguer.addEventListener('click', showMenuHamburguer);
 menuShop.addEventListener('click', showAsideShop);
 productDetailClose.addEventListener('click', closeProductDetail);
 
-function closeProductDetail() {
-  productDetailContainer.classList.toggle('inactive');
-}
-
 function showMenu() {
   const asideClose = shoppingCartContainer.classList.contains('inactive');
 
@@ -32,9 +28,9 @@ function showMenuHamburguer() {
 
   if (!asideClose) {
     shoppingCartContainer.classList.add('inactive');
+    closeProductDetail();
   }
 
-  closeProductDetail();
 
   menuHamburguerMObile.classList.toggle('inactive');
 }
@@ -62,6 +58,10 @@ function showAsideShop () {
 function openProductDetailAside() {
   shoppingCartContainer.classList.add('inactive');
   productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetail() {
+  productDetailContainer.classList.toggle('inactive');
 }
 
 const productsList = [];
